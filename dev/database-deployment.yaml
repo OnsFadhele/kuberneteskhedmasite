@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: database-deployment
+  labels:
+    app: khedma-database
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: khedma-database
+  template:
+    metadata:
+      labels:
+        app: khedma-database
+    spec:
+      containers:
+      - name: database
+        image: onsfadhel/khedmasite_database:database-66
+        ports:
+        - containerPort: 5432
+        env:
+        - name: POSTGRES_DB
+          value: "postgres"
+        - name: POSTGRES_USER
+          value: "postgres"
+        - name: POSTGRES_PASSWORD
+          value: "postgres"
+        volumeMounts:
+        - name: db-storage
+          mountPath: /var/lib/postgresql/data
+      volumes:
+      - name: db-storage
+        persistentVolumeClaim:
+          claimName: postgres-pvc
+

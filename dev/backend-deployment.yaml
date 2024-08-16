@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend-deployment
+  labels:
+    app: khedma-backend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: khedma-backend
+  template:
+    metadata:
+      labels:
+        app: khedma-backend
+    spec:
+      containers:
+      - name: backend
+        image: onsfadhel/khedmasite_django:django-66
+        ports:
+        - containerPort: 8000
+        volumeMounts:
+        - name: media-volume
+          mountPath: /django/khedma/media
+      volumes:
+      - name: media-volume
+        persistentVolumeClaim:
+          claimName: backend-pvc
+
