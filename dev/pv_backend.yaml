@@ -10,5 +10,5 @@ spec:
     - ReadWriteOnce
   hostPath:
     path: /mnt/data/backend  
-  storageClassName: manual
+  
 
