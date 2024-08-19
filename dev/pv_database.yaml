@@ -10,5 +10,4 @@ spec:
     - ReadWriteOnce
   hostPath:
     path: /mnt/data/postgres
-  storageClassName: manual
 
