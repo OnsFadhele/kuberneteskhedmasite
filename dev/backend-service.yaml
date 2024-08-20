@@ -6,11 +6,10 @@ metadata:
   labels:
     app: khedma-backend
 spec:
-  type: NodePort
+  type: LoadBalancer
   selector:
     app: khedma-backend
   ports:
     - protocol: TCP
-      port: 8000       # The port the service is exposed on
-      targetPort: 8000 # The port on the container
-      nodePort: 30001  # The port on each node
+      port: 8000
+      targetPort: 8000
