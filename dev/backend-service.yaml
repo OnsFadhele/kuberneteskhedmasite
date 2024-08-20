@@ -3,13 +3,11 @@ kind: Service
 metadata:
   name: backend
   namespace: khedmadeploy
-  labels:
-    app: khedma-backend
 spec:
-  type: LoadBalancer
   selector:
     app: khedma-backend
   ports:
     - protocol: TCP
-      port: 8000
+      port: 80
       targetPort: 8000
+  type: LoadBalancer
