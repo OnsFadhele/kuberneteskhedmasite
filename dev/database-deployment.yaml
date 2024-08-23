@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: database
-        image: onsfadhel/khedmasite_database:database-66
+        image: onsfadhel/khedmasite_database:database-67
         ports:
         - containerPort: 5432
         env:
