@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: backend
-        image: onsfadhel/khedmasite_django:django-66
+        image: onsfadhel/khedmasite_django:django-67
         ports:
         - containerPort: 8000
         volumeMounts:
